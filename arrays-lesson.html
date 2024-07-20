@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <label for="number">Enter number: </label>
+    <input id="number" type="number" />
+    <button>Start Countdown</button>
+
+    <p></p>
+
+    <script>
+      const para = document.querySelector("p");
+      const input = document.querySelector("input");
+      const btn = document.querySelector("button");
+
+      btn.addEventListener("click", async () => {
+        para.textContent = "";
+        let counter = parseInt(input.value);
+        do {
+          para.textContent += `${counter}, `;
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          counter--;
+        } while (counter > 0);
+        para.textContent += `Fire!`;
+      });
+    </script>
+  </body>
+</html>
